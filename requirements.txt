@@ -2,7 +2,6 @@ streamlit
 transformers
 torch
 langchain_text_splitters
-langchain.text_splitter
 langchain-text-splitters
 RecursiveCharacterTextSplitter
 langchain_community.document_loaders
