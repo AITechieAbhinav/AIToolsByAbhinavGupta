@@ -1,4 +1,13 @@
 streamlit
 transformers
 torch
-sentencepiece
+langchain_text_splitters
+RecursiveCharacterTextSplitter
+langchain_community.document_loaders
+PyPDFLoader
+langchain_huggingface.embeddings
+HuggingFaceEmbeddings
+langchain_chroma
+Chroma
+chromadb
+tqdm
