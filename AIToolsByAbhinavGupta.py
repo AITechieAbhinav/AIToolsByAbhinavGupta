@@ -31,7 +31,7 @@ with tab1:
 		sm_txt = summarizer(text)
 		st.markdown(sm_txt)
 
-With tab2:
+with tab2:
 
     api_key = st.secrets['api_key']
     
