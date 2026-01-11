@@ -56,7 +56,7 @@ with tab2:
 
     language = st.selectbox(
         "Select language",
-        ["en", "fr", "ru", "hi", "es"]
+        ["en", "hi"]
     )
 
     if st.button("Generate my speech"):
