@@ -63,8 +63,8 @@ with tab2:
     #Save chunks
     data = text_spliter.split_text(text)
     
-    if len(data) == 0:
-		st.warning("Please upload a PDF file to continue.")
+    #if len(data) == 0:
+		#st.warning("Please upload a PDF file to continue.")
         #st.stop()
 		
 
