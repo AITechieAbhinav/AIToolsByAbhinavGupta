@@ -80,7 +80,7 @@ with tab2:
     
     chat_model = ChatHuggingFace(llm=llm)
     
-    if u_input :
+	if u_input :
         search_result = database.similarity_search(u_input)
         chain = load_qa_chain(chat_model,chain_type="stuff",verbose=True)
     
@@ -109,7 +109,7 @@ with tab3:
 
   	if st.button("Generate my speech"):
     	  if text_input:
-        	  tts = gTTS(text_input, lang=language)
+        	tts = gTTS(text_input, lang=language)
           	audio_stream = BytesIO()
           	st.success("Speech is generated successfully!")
           	tts.write_to_fp(audio_stream)
