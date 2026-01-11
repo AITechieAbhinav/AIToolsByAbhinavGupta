@@ -90,7 +90,7 @@ with tab2:
     
         st.write(response)
 
-with tab3 :
+with tab3:
 
 	st.title("Simple Text to Speech Converter")
 
