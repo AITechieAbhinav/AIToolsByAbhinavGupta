@@ -96,16 +96,16 @@ with tab3 :
 
   text_input = st.text_area("Enter text to convert to speech", height=150)
 
-  st.sidebar.title("Upload your file")
-  uploaded_file = st.sidebar.file_uploader("Choose a .txt file", type="txt")
+  #st.sidebar.title("Upload your file")
+  #uploaded_file = st.sidebar.file_uploader("Choose a .txt file", type="txt")
 
-  if uploaded_file is not None:
-      file_text = uploaded_file.read().decode("utf-8")
-      st.subheader("Text from Uploaded file")
-      st.text(file_text)
-      text_input += "\n\n" + file_text
+  #if uploaded_file is not None:
+  #    file_text = uploaded_file.read().decode("utf-8")
+  #    st.subheader("Text from Uploaded file")
+  #    st.text(file_text)
+  #    text_input += "\n\n" + file_text
 
-  language = st.selectbox("Select language", ["en", "fr", "ru", "hi", "es"])
+  language = st.selectbox("Select language", ["en","hi"])
 
   if st.button("Generate my speech"):
       if text_input:
