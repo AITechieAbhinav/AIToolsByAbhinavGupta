@@ -72,7 +72,7 @@ with tab2:
 with tab3:
     api_key = st.secrets["api_key"]
 
-    pdf_file = st.file_uploader("Upload your file", type="pdf")
+    pdf_file = st.file_uploader("Upload your .pdf file", type="pdf")
 
     text = ""
 
