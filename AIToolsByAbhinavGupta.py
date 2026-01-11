@@ -24,7 +24,7 @@ tab1, tab2, tab3 = st.tabs(tab_titles)
 # ---------------- TAB 1 ----------------
 with tab1:
     
-    text = st.text_input("Paste text below to Summarize")
+    input_text = st.text_input("Paste text below to Summarize")
     
     model_name = "t5-base" 
     tokenizer = T5Tokenizer.from_pretrained(model_name)
