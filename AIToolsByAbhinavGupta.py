@@ -1,5 +1,7 @@
 import streamlit as st
 from transformers import pipeline
+from transformers import T5Tokenizer, T5ForConditionalGeneration
+import torch
 
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
@@ -21,15 +23,24 @@ tab1, tab2, tab3 = st.tabs(tab_titles)
 
 # ---------------- TAB 1 ----------------
 with tab1:
+    
     text = st.text_input("Paste text below to Summarize")
+    
+    model_name = "t5-base" 
+    tokenizer = T5Tokenizer.from_pretrained(model_name)
+    model = T5ForConditionalGeneration.from_pretrained(model_name)
 
     if st.button("Submit"):
-        summarizer = pipeline(
-            "summarization",
-            model="pszemraj/long-t5-tglobal-base-16384-book-summary"
-        )
-        sm_txt = summarizer(text)
-        st.markdown(sm_txt)
+    
+      inputs = tokenizer(input_text, return_tensors="pt")
+      summary_ids = model.generate(
+      inputs.input_ids,
+      max_length=200,
+      num_beams=5,
+      early_stopping=True
+      )
+      output_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+      st.markdown(output_text)
 
 # ---------------- TAB 2 ----------------
 with tab2:
