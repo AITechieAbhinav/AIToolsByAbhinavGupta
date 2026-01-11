@@ -16,7 +16,7 @@ from io import BytesIO
 st.set_page_config(page_title="AI Tools by Abhinav Gupta", layout="centered")
 st.title("📝 AI Tools by Abhinav Gupta")
 
-tab_titles = ["Text Summarizer", "PDF QnA", "Text to Speech"]
+tab_titles = ["Text Summarizer", "Text to Speech", "PDF QnA"]
 tab1, tab2, tab3 = st.tabs(tab_titles)
 
 # ---------------- TAB 1 ----------------
@@ -33,7 +33,6 @@ with tab1:
 
 # ---------------- TAB 2 ----------------
 with tab2:
-    st.title("Simple Text to Speech Converter")
 
     text_input = st.text_area(
         "Enter text to convert to speech",
