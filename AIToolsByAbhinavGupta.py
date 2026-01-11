@@ -64,8 +64,9 @@ with tab2:
     data = text_spliter.split_text(text)
     
     if len(data) == 0:
-        #st.stop()
 		st.warning("Please upload a PDF file to continue.")
+        #st.stop()
+		
 
     
     #Create embeedings
