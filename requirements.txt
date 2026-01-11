@@ -1,4 +1,3 @@
-Ollama
 langchain 
 langchain_classic
 langchain_huggingface
@@ -11,3 +10,5 @@ faiss-cpu
 transformers
 sentence-transformers
 gTTS
+torch
+sentencepiece
