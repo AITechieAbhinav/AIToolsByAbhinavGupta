@@ -10,3 +10,4 @@ PdfReader
 faiss-cpu
 transformers
 sentence-transformers
+gTTS
