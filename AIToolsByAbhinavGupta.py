@@ -24,7 +24,9 @@ tab1, tab2, tab3, tab4= st.tabs(tab_titles)
 # ---------------- TAB 1 ----------------
 with tab1:
     
-    client = Groq(api_key=st.secrets["groq_api_key"])
+    client = Groq(
+        api_key=st.secrets["groq_api_key"],
+    )
 
     ##Initiate Chat History##
     if "chat_history" not in st.session_state:
