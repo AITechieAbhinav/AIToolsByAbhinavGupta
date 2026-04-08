@@ -12,3 +12,5 @@ sentence-transformers
 gTTS
 torch
 sentencepiece
+langchain-groq
+langchain-community
