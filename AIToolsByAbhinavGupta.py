@@ -53,9 +53,9 @@ with tab1:
         
         assistant_response = response.content
         st.session_state.chat_history.append({"role" :"assistant", "content" :assistant_response})
-    
-    with st.chat_message("assistant"):
-      st.markdown(assistant_response)
+      
+        with st.chat_message("assistant"):
+          st.markdown(assistant_response)
           
 # ---------------- TAB 2 ----------------
 with tab2:
