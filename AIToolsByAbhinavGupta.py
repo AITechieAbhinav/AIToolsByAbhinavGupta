@@ -22,6 +22,7 @@ tab_titles = ["AI Chatbot","Text Summarizer", "Text to Speech", "PDF QnA"]
 tab1, tab2, tab3, tab4= st.tabs(tab_titles)
 
 # ---------------- TAB 1 ----------------
+from langchain_groq import ChatGroq
 
 ##Initiate Chat History##
 if "chat_history" not in st.session_state:
