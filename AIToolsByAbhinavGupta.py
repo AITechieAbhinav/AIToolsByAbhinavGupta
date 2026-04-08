@@ -18,11 +18,44 @@ from io import BytesIO
 st.set_page_config(page_title="AI Tools by Abhinav Gupta", layout="centered")
 st.title("📝 AI Tools by Abhinav Gupta")
 
-tab_titles = ["Text Summarizer", "Text to Speech", "PDF QnA"]
-tab1, tab2, tab3 = st.tabs(tab_titles)
+tab_titles = ["AI Chatbot","Text Summarizer", "Text to Speech", "PDF QnA"]
+tab1, tab2, tab3, tab4= st.tabs(tab_titles)
 
 # ---------------- TAB 1 ----------------
-with tab1:
+
+##Initiate Chat History##
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+## Show chat history ##
+
+for message in st.session_state.chat_history:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+llm = ChatGroq(
+    model= "llama-3.3-70b-versatile",
+    temperature=0.0
+)
+
+user_prompt = st.chat_input("Ask ChatBot")
+
+if user_prompt:
+    st.chat_message("user").markdown(user_prompt)
+    st.session_state.chat_history.append({"role":"user", "content":user_prompt})
+
+    response = llm.invoke(
+        input = [{"role":"system", "content":"You are a helpful assistant"}, *st.session_state.chat_history]
+    )
+
+assistant_response = response.content
+st.session_state.chat_history.append({"role" :"assistant", "content" :assistant_response})
+
+with st.chat_message("assitant"):
+    st.markdown(assistant_response)
+    
+# ---------------- TAB 2 ----------------
+with tab2:
     
     input_text = st.text_input("Paste text below to Summarize")
     
@@ -42,8 +75,8 @@ with tab1:
       output_text = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
       st.markdown(output_text)
 
-# ---------------- TAB 2 ----------------
-with tab2:
+# ---------------- TAB 3 ----------------
+with tab3:
 
     text_input = st.text_area(
         "Enter text to convert to speech",
@@ -80,7 +113,7 @@ with tab2:
             st.warning("Please enter some text or upload from device.")
 
 # ---------------- TAB 3 ----------------
-with tab3:
+with tab4:
     api_key = st.secrets["api_key"]
 
     pdf_file = st.file_uploader("Upload your .pdf file", type="pdf")
