@@ -25,6 +25,8 @@ tab1, tab2, tab3, tab4= st.tabs(tab_titles)
 from langchain_groq import ChatGroq
 
 with tab1:
+
+    user_prompt = st.chat_input("Ask ChatBot")
   
     ##Initiate Chat History##
     if "chat_history" not in st.session_state:
@@ -40,9 +42,7 @@ with tab1:
         temperature=0.0,
         groq_api_key=st.secrets["groq_api_key"]
     )
-    
-    user_prompt = st.chat_input("Ask ChatBot")
-    
+        
     if user_prompt:
         st.chat_message("user").markdown(user_prompt)
         st.session_state.chat_history.append({"role":"user", "content":user_prompt})
