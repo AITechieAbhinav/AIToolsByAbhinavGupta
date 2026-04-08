@@ -25,11 +25,17 @@ tab1, tab2, tab3, tab4= st.tabs(tab_titles)
 from langchain_groq import ChatGroq
 
 with tab1:
+
+    ## Show chat history ##
     
     ##Initiate Chat History##
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
-    
+
+    for message in (st.session_state.chat_history):
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+        
     llm = ChatGroq(
         model= "llama-3.3-70b-versatile",
         temperature=0.0,
@@ -50,12 +56,7 @@ with tab1:
     
         with st.chat_message("assistant"):
             st.markdown(assistant_response)
-        
-    ## Show chat history ##
-    
-    for message in (st.session_state.chat_history):
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+            
 # ---------------- TAB 2 ----------------
 with tab2:
     
