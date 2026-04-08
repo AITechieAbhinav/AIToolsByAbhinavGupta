@@ -56,7 +56,8 @@ with tab1:
       
         with st.chat_message("assistant"):
           st.markdown(assistant_response)
-          
+
+        st.rerun()
 # ---------------- TAB 2 ----------------
 with tab2:
     
