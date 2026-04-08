@@ -24,7 +24,7 @@ tab1, tab2, tab3, tab4= st.tabs(tab_titles)
 # ---------------- TAB 1 ----------------
 with tab1:
     
-    groq_api_key = st.secrets["groq_api_key"]
+    client = Groq(api_key=st.secrets["groq_api_key"])
 
     ##Initiate Chat History##
     if "chat_history" not in st.session_state:
@@ -38,7 +38,8 @@ with tab1:
     
     llm = ChatGroq(
         model= "llama-3.3-70b-versatile",
-        temperature=0.0
+        temperature=0.0,
+         = groq_api_key
     )
     
     user_prompt = st.chat_input("Ask ChatBot")
