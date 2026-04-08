@@ -33,8 +33,8 @@ with tab1:
         st.session_state.chat_history = []
 
     for message in (st.session_state.chat_history):
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
         
     llm = ChatGroq(
         model= "llama-3.3-70b-versatile",
