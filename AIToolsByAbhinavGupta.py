@@ -50,11 +50,12 @@ with tab1:
         response = llm.invoke(
             input = [{"role":"system", "content":"You are a helpful assistant"}, *st.session_state.chat_history]
         )
+        
         assistant_response = response.content
         st.session_state.chat_history.append({"role" :"assistant", "content" :assistant_response})
     
-        with st.chat_message("assistant"):
-            st.markdown(assistant_response)
+    with st.chat_message("assistant"):
+      st.markdown(assistant_response)
           
 # ---------------- TAB 2 ----------------
 with tab2:
